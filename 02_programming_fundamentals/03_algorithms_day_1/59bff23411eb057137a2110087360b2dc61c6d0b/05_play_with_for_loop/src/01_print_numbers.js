@@ -4,3 +4,10 @@ for(let i = 0; i <= 100; i++){
   let stdout = i ;
   console.log(stdout);
 }
+
+// correction
+// for(let i = 0; i <= 100; i++){
+//   console.log(i);
+// }
+
+// stdout = sortie standard
