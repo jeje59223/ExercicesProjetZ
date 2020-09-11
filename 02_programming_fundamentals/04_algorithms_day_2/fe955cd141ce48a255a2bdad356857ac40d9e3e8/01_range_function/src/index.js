@@ -12,10 +12,11 @@ function range(nb1, nb2) {
   }
   return newTab;
 }
-const ascArray = range(1,5);
+
+const ascArray = range(11,11);
 const descArray = range(5,1);
 
-// console.log(ascArray, descArray);
+console.log(ascArray, descArray);
 
 // Do not remove last lines, it is for tests
 module.exports = range;

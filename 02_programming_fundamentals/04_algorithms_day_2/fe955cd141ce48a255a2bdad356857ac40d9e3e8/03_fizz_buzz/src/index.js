@@ -1,19 +1,16 @@
 function fizzBuzz(numbers) {
   // Code the function here.
   const newTab = [];
-  let IsFizzBizz = "";
   for(let i = 0; i < numbers.length; i++){
-    const valeur = numbers[i];
-    if(valeur % 3 === 0 && valeur % 5 === 0){
-      IsFizzBizz = "FizzBuzz";
-    } else if(valeur % 3 === 0){
-      IsFizzBizz = "Fizz";
-    } else if(valeur % 5 === 0){
-      IsFizzBizz = "Buzz";
+    if(numbers[i] % 3 === 0 && numbers[i] % 5 === 0){
+      newTab.push("FizzBuzz");
+    } else if(numbers[i] % 3 === 0){
+      newTab.push("Fizz");
+    } else if(numbers[i] % 5 === 0){
+      newTab.push("Buzz");
     } else {
-      IsFizzBizz = valeur;
+      newTab.push(numbers[i]);
     }
-    newTab.push(IsFizzBizz);
   }
   return newTab;
 }
