@@ -7,7 +7,7 @@ function filter(array, str) {
     } else if(str === "impair" && array[i] % 2 !== 0){
       tab.push(array[i]);
     } else {
-      return "Cas non pris en charge !";
+      "Cas non pris en charge !";
     }
   }
   return tab;
