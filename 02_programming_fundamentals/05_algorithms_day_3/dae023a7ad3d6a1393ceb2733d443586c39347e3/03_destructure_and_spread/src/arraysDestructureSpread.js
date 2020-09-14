@@ -6,8 +6,12 @@ function arrayCrusher(firstArray, secondArray) {
 
 function recursiveBouncer(list) {
   // code here
-  const array = [...list];
-  console.log(array);
+  if(list.length === 0){
+    return;
+  }
+  const [head, ...tail] = list;
+  console.log(head);
+  recursiveBouncer(tail);
 }
 
 module.exports = {

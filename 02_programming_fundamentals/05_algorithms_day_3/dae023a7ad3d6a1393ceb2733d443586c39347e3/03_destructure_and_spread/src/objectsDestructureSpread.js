@@ -40,7 +40,7 @@ const test = {
   }
 };
 
-function logInfos(user) {
+function logInfos(user = {}) {
   const redactedUser = {
     firstName: "<REDACTED>",
     lastName: "<REDACTED>",
@@ -50,12 +50,16 @@ function logInfos(user) {
     },
   };
 
-  let {
-    firstName,
-    lastName,
-    address: { city, country },
-  } = {...redactedUser.address.city, ...user.address.country}; // Change here
-  
+  const userIdentity = {
+    ...redactedUser,
+    ...user,
+    address: {
+      ...redactedUser.address,
+      ...user.address,
+    },
+  };
+
+  const {firstName, lastName, address: { city, country }, } = userIdentity;
 
   console.log(`${firstName} ${lastName} lives in ${city}, ${country}.`);
 }
