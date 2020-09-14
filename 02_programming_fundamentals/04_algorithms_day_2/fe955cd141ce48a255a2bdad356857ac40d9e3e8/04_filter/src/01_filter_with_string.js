@@ -13,8 +13,6 @@ function filter(array, str) {
   return tab;
 }
 
-
-
 const tableau = [1,2,3,4,5];
 console.log(filter(tableau,"even"));
 console.log(filter(tableau,"odd"));
