@@ -7,15 +7,15 @@ function numberGameWithStats(reader, min = 1, max = 100) {
   let coupsRestant = 10;
   const startGame = () => {
     reader.question(question, (number) => {
-      if(isNaN(number)){
+      if(coupsRestant === 1){
+        console.log("You lOOOOOOOOOSE !!!!!!!");
+        reader.close();
+      } else if(isNaN(number)){
         question = `${number} is not a number ! \n`;
         nombreDeCoups++;
         coupsRestant--;
         console.log(`Il te reste ${coupsRestant} coups`);
         startGame();
-      } else if(coupsRestant === 1){
-        console.log("You lOOOOOOOOOSE !!!!!!!");
-        reader.close();
       } else if(number < min || number > max){
         question = `The number is between ${min} and ${max} \n`;
         nombreDeCoups++;
@@ -38,7 +38,7 @@ function numberGameWithStats(reader, min = 1, max = 100) {
         console.log("You won!");
         nombreDeCoups++;
         if(nombreDeCoups === 1){
-          console.log(`Magnifique vu ta chance tu es cocu ! Vous avez gagné avec ${nombreDeCoups} coups`);
+          console.log(`Magnifique vu ta chance tu es cocu ! Rentre chez toi vérifier ! Vous avez gagné en ${nombreDeCoups} coups`);
         } else {
           console.log(`Bravo ! Vous avez gagné avec ${nombreDeCoups} coups`);
         }
