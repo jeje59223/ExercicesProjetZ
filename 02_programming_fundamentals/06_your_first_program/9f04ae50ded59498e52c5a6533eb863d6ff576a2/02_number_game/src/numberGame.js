@@ -1,5 +1,3 @@
-
-
 function numberGame(reader, min = 1, max = 100) {
   // code here
   const numberSecret = Math.round(Math.random() * (max - min) + min);
@@ -9,23 +7,25 @@ function numberGame(reader, min = 1, max = 100) {
     reader.question(question, (number) => {
       if(isNaN(number)){
         question = `${number} is not a number ! \n`;
-        startGame();
+        // startGame();
       } else if(number < min || number > max){
         question = `The number is between ${min} and ${max} \n`;
-        startGame();
+        // startGame();
       } else if(number < numberSecret){
         question = "too low \n";
-        startGame();
+        // startGame();
       } else if( number > numberSecret){
         question = "too high \n";
-        startGame();
+        // startGame();
       } else {
         console.log("You won! \n");
         reader.close();
+        return;
       }
+      startGame();
     });
   };
-  startGame();
+  startGame(question);
 }
 
 module.exports = numberGame;
