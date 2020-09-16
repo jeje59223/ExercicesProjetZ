@@ -9,7 +9,7 @@ This exercise is here to make you understand how we can use objects.
 We will give you an example of how we want to use our coffee `machine` object and you will have to implement the missing functions.
 
 ```javascript
-machine.fillWithLitersOfCoffee(10);
+machine.fillWithLitersOfCoffee(0.06);
 console.log(machine.litersOfCoffee); // => 10
 console.log(machine.expresso()); // => true
 console.log(machine.litersOfCoffee); // => 9.92

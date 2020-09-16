@@ -6,3 +6,10 @@ console.log(machine.expresso()); // => true
 console.log(machine.litersOfCoffee); // => 9.92
 console.log(machine.longCoffee()); // => true
 console.log(machine.litersOfCoffee); // => 9.77
+console.log(machine.expresso());
+console.log(machine.litersOfCoffee);
+console.log(machine.longCoffee());
+console.log(machine.litersOfCoffee);
+console.log(machine.expresso());
+console.log(machine.litersOfCoffee);
+
