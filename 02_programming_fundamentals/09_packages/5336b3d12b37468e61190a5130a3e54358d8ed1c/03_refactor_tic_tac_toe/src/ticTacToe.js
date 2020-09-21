@@ -1,47 +1,13 @@
+// fichier qui doit exporter le game
 const readline = require("readline");
-const display = require("./display.js");
-const gameState = require("./gameState.js");
-const ticTacToe = require("./ticTacToe.js");
+const gameState = require("./gameState");
+const display = require("./display");
 const utilities = require("./utilities");
 
 const reader = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
-
-// function renderCell(cell) {
-//   if (cell === null) {
-//     return "_";
-//   } else {
-//     return cell;
-//   }
-// }
-
-// function renderRow(letter, state) {
-//   const cells = state[letter];
-
-//   const row = cells.map(renderCell).join(" | ");
-
-//   return `${letter} ${row}`;
-// }
-
-// function renderBoard(state) {
-//   const letters = Object.keys(state);
-
-//   const rows = letters.map((letter) => renderRow(letter, state)).join("\n");
-
-//   const header = "  1   2   3";
-
-//   return `${header}\n${rows}`;
-// }
-
-// function isNotNull(value) {
-//   return value !== null;
-// }
-
-// function flattenArray(arrayOfArray) {
-//   return arrayOfArray.reduce((newArray, array) => newArray.concat(array), []);
-// }
 
 const WINNING_COORDINATES = [
   [
@@ -86,14 +52,6 @@ const WINNING_COORDINATES = [
   ],
 ];
 
-// const state = {
-//   a: Array(3).fill(null),
-//   b: Array(3).fill(null),
-//   c: Array(3).fill(null),
-// };
-
-// let currentPlayer;
-
 function handleInput(input) {
   const coordinate = gameState.getCoordinate(input);
   if (coordinate) {
@@ -116,23 +74,6 @@ function handleInput(input) {
   }
 }
 
-// function getCoordinate(input) {
-//   const letter = input[0];
-//   const digit = input[1] - 1;
-
-//   if (state[letter] && state[letter][digit] === null) {
-//     return { letter: letter, digit: digit };
-//   } else {
-//     return null;
-//   }
-// }
-
-// function updateState(coordinate) {
-//   const line = state[coordinate.letter];
-
-//   line[coordinate.digit] = currentPlayer;
-// }
-
 function nextPlayer() {
   if (gameState.currentPlayer === "X") {
     gameState.currentPlayer = "O";
@@ -146,18 +87,6 @@ function playTurn() {
   reader.question(`${gameState.currentPlayer}: What is your move? e.g: a1\n`, handleInput);
 }
 
-function start() {
-  gameState.currentPlayer = ["X", "O"][Math.round(Math.random())];
-
-  playTurn();
-}
-
-function gameIsFinished(state) {
-  const allValues = utilities.flattenArray(Object.values(gameState.state));
-
-  return allValues.every(utilities.isNotNull);
-}
-
 function hasWinner() {
   const isWinningLine = (line) => {
     const pattern = line.map((coordinate) => gameState.state[coordinate.letter][coordinate.digit]).join("");
@@ -168,4 +97,18 @@ function hasWinner() {
   return WINNING_COORDINATES.some(isWinningLine);
 }
 
-ticTacToe.start();
+function gameIsFinished(state) {
+  const allValues = utilities.flattenArray(Object.values(gameState.state));
+
+  return allValues.every(utilities.isNotNull);
+}
+
+function start() {
+  gameState.currentPlayer = ["X", "O"][Math.round(Math.random())];
+  
+  playTurn();
+}
+
+start();
+
+module.exports = { start };
