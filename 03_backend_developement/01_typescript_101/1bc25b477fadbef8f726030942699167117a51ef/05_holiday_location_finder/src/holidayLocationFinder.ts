@@ -1,9 +1,9 @@
 import { Interface } from "readline";
 import { CITIES, CONTINENTS } from "./data/data";
 
-function holidayLocationFinder(reader: Interface) : any{
+function holidayLocationFinder(reader: Interface) : any {
   // Write your code here
-  reader.question("Please input your choice:", (location):any => {
+  reader.question("Please input your choice:", (location: string): any => {
     switch(location){
       case "Europe": 
         return CITIES.Europe;
@@ -24,7 +24,6 @@ function holidayLocationFinder(reader: Interface) : any{
         return CITIES.Oceania
       break;
       default: console.log("I don't think I have to tell you why I did not put Antarctica there 😅.");
-    
     }
   })
 }

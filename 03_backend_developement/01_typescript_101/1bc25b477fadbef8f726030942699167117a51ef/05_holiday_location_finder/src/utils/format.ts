@@ -4,7 +4,8 @@ import { holidayLocationFinder } from "../holidayLocationFinder";
 // Format user input.
 function sanitizeUserInput(location: string) :any{
   // Write your code here
-  holidayLocationFinder(location).trim();
+  // ma_chaine = ma_chaine.replace(/ /g, "");
+  holidayLocationFinder();
   
 }
 
