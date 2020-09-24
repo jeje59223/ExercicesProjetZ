@@ -24,7 +24,7 @@ abstract class Tree {
 
     abstract isAlive(): boolean;
 
-    abstract ageOneYear(): number;
+    abstract ageOneYear(): void;
 
     seed(): void{
         this.age = 0;
