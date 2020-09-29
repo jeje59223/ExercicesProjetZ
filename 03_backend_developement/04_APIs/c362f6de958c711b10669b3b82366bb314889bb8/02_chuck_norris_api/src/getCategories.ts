@@ -6,7 +6,8 @@ function getCategories() {
     if(error){
       console.error(error);
     } else {
-      console.log(body);
+      const categories = JSON.parse(body);
+      console.log(categories);
     }
   })
 }
