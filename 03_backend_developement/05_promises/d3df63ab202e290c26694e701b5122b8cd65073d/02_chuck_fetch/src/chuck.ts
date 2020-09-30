@@ -1,12 +1,11 @@
-import fetch, { Response } from "node-fetch";
-
-function getCategories() {
-  // Your code goes here
+import fetch from "node-fetch";
+function getCategories(): Promise<string[]> {
+  return fetch("https://api.chucknorris.io/jokes/categories").then((Response) => Response.json());
 }
-
-function getChuckNorrisJoke() {
-  // Your code goes here
+function getChuckNorrisJoke(selectedCategory: string): Promise<string> {
+  return fetch(`https://api.chucknorris.io/jokes/random?category=${selectedCategory}`).then((Response) =>
+    Response.json().then((joke) => joke.value)
+  );
 }
-
 // Leave the line below for tests to work properly
 export { getCategories, getChuckNorrisJoke };
