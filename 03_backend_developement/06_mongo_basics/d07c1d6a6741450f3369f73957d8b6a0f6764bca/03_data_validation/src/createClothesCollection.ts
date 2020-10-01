@@ -106,7 +106,11 @@ export const clothesValidator = {
     $jsonSchema: {
       bsonType: "object",
       required: ["_id", "name", "color", "category", "size"],
-      oneOf: [{ sweaterProperties }, { shoesProperties }, { pantsProperties }],
+      oneOf: [ 
+        sweaterProperties,  
+        shoesProperties,  
+        pantsProperties 
+      ],
     },
   },
 };
