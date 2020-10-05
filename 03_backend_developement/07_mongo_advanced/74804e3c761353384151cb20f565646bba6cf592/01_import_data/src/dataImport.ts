@@ -58,8 +58,8 @@ export default function dataImport(db: mongo.Db): Promise<true> {
 
 
 
-
 // Mon début d'exo :
+
 // function choosePlatform(file: string): string {
 //   const fileName = file;
 //   const filePath = path.resolve(`data/${fileName}`);
